@@ -76,4 +76,4 @@
 
 <a name="Пример"></a> 
 # Пример работы:
-
+![Alt Text](https://i.yapx.ru/aqMPX.png)
