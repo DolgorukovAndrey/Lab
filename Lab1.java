@@ -1,7 +1,7 @@
 import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 import java.util.Random;
+
 public class Lab1 {
     Scanner scanner = new Scanner(System.in);
 
@@ -86,11 +86,6 @@ public class Lab1 {
 
     public int lastNumSum(int a, int b) {
         a = a % 10 + b % 10;
-        for (int i = 3; i <= 5; i++) {
-            System.out.print("Введите " + i + " число: ");
-            b = inputInt();
-            a = a % 10 + b % 10;
-        }
         return a;
     }
 
@@ -98,9 +93,13 @@ public class Lab1 {
         System.out.println("Задание 5");
         System.out.print("Введите 1 число: ");
         int a = inputInt();
-        System.out.print("Введите 2 число: ");
-        int b = inputInt();
-        System.out.println("Итого: " + lastNumSum(a, b));
+        int b = 0;
+        for (int i = 2; i <= 5; i++) {
+            System.out.print("Введите " + i + " число: ");
+            b = inputInt();
+            a = lastNumSum(a,b);
+        }
+        System.out.println("Итого: " + a);
         System.out.println("Последовательное сложение цифр двух чисел из разряда единиц");
     }
 
@@ -110,7 +109,12 @@ public class Lab1 {
         } else {
             double x1 = x;
             double y1 = y;
-            return x1 / y1;
+            if (x == 0 || y == 0) {
+                return 0;
+            }
+            else {
+                return x1 / y1;
+            }
         }
     }
 
@@ -126,13 +130,13 @@ public class Lab1 {
     public String makeDecision(int x, int y) {
         String str = "";
         if (x == y) {
-            str = Integer.toString(x) + " == " + Integer.toString(y);
+            str = x + " == " + y;
         }
         if (x > y) {
-            str = Integer.toString(x) + " > " + Integer.toString(y);
+            str = x + " > " + y;
         }
         if (x < y) {
-            str = Integer.toString(x) + " < " + Integer.toString(y);
+            str = x + " < " + y;
         }
         return str;
     }
@@ -168,12 +172,12 @@ public class Lab1 {
     public String age(int x) {
         String str = "";
         if (x % 10 == 1 && x != 11) {
-            str = Integer.toString(x) + " год";
+            str = x + " год";
         } else {
-            if ((x % 10 == 2 || x % 10 == 3 || x % 10 == 4) && (x != 12) && (x != 13) && (x != 14)) {
-                str = Integer.toString(x) + " года";
+            if ((x % 10 == 2 || x % 10 == 3 || x % 10 == 4) && (x % 100 != 12) && (x % 100 != 13) && (x % 100 != 14)) {
+                str = x + " года";
             } else {
-                str = Integer.toString(x) + " лет";
+                str = x + " лет";
             }
         }
         return str;
@@ -227,8 +231,14 @@ public class Lab1 {
 
     public void task11() {
         System.out.println("Задание 11");
-        System.out.print("Введите число x: ");
-        int x = inputInt();
+        int x;
+        while (true) {
+            System.out.print("Введите число x ( больше 0 ): ");
+            x = inputInt();
+            if (x >= 0) {
+                break;
+            }
+        }
         System.out.println("Строка чисел от x до 0");
         System.out.println(reverseListNums(x));
     }
@@ -307,8 +317,13 @@ public class Lab1 {
         int count = 0;
         int x;
         while (true) {
-            System.out.print("Введите число от 0 до 9: ");
-            x = inputInt();
+            while (true) {
+                System.out.print("Введите число от 0 до 9: ");
+                x = inputInt();
+                if (x >= 0 && x <= 9) {
+                    break;
+                }
+            }
             count++;
             if (x == randomInt) {
                 System.out.println("Вы угадали!");

@@ -1,13 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Lab1 lab1 = new Lab1();
         int choice;
-        System.out.print("Введите номер задания от 1 до 20 (для выхода введите 0): ");
+        System.out.print("Введите номер задания от 1 до 20 (для завершения введите 0): ");
         choice = lab1.inputInt();
         while (choice != 0) {
             switch (choice) {
@@ -74,9 +72,8 @@ public class Main {
                 default:
                     System.out.println("Такого задания нет");
                     break;
-
             }
-            System.out.print("Введите номер задания от 1 до 20 (для выхода введите 0): ");
+            System.out.print("Введите номер задания от 1 до 20 (для завершения введите 0): ");
             choice = lab1.inputInt();
         }
     }
